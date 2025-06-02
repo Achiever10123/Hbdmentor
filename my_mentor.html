@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday to my Mentor!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --primary: #ff4d94;
+            --secondary: #00e5ff;
+            --accent: #9c27b0;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #f0f0f0;
+            --gray: #2a2a2a;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --transition: all 0.4s ease;
+            --shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+        
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotate 3s infinite linear;
+        }
+        
+        .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--glass);
+            border: 2px solid var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.8;
+        }
+        
+        .cube-face:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(10px);
+        }
+        
+        .cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(40px); background: var(--primary); }
+        .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(40px); background: var(--secondary); }
+        .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(40px); background: var(--accent); }
+        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(40px); background: var(--primary); }
+        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(40px); background: var(--secondary); }
+        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(40px); background: var(--accent); }
+        
+        @keyframes rotate {
+            0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+        }
+        
+        .loader-text {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--light);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+        }
+        
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: var(--primary);
+            color: var(--darker);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,77,148,0.1) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 650px;
+            z-index: 10;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(255,77,148,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .countdown {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem auto;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-box {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            min-width: 100px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .countdown-box.pop {
+            animation: pop 0.5s ease;
+        }
+        
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        
+        .countdown-box .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0,229,255,0.5);
+        }
+        
+        .countdown-box .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 2rem;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: var(--secondary);
+            border: 4px solid var(--dark);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -13px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+        
+        
+        .gallery-section {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+       .slideshow-container {
+            position: relative;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: #000;
+        }
+        
+        /* Aspect ratio container */
+        .slide-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.4s ease;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        /* Navigation controls */
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+        
+        .btn {
+            background: linear-gradient(90deg, #3498db, #8e44ad);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        /* Thumbnails */
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s, transform 0.3s;
+            box-shadow: var(--shadow);
+        }
+        
+        .thumbnail:hover, .thumbnail.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .slide-container {
+                padding-top: 75%; /* 4:3 Aspect Ratio for tablets */
+            }
+            
+            .thumbnail {
+                width: 70px;
+                height: 50px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slide-container {
+                padding-top: 100%; /* 1:1 Aspect Ratio for mobile */
+            }
+            
+            .thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+            
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        
+        /* Guestbook */
+        .guestbook {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .guestbook-form {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255,77,148,0.3);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .messages {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .message-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        
+        .message-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        
+        .message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .message-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .message-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .message-date {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 0.2rem;
+        }
+        
+        .message-content {
+            line-height: 1.7;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.5);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-icon.twitter {
+            background: lightblue;
+        }
+        
+      
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Confetti Canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2000;
+        }
+        
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 5%;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .countdown-box {
+                min-width: 80px;
+                padding: 1rem;
+            }
+            
+            .countdown-box .number {
+                font-size: 2rem;
+            }
+            
+            .slideshow-container {
+                height: 300px;
+            }
+        }
+     
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="cube">
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+                <div class="cube-face"></div>
+            </div>
+        </div>
+        <div class="loader-text">Loading Celebration...</div>
+    </div>
+    
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+    
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo"><i class="fas fa-crown"></i> MentorDay</a>
+        <nav>
+            <ul>
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#timeline">Journey</a></li>
+                <li><a href="#gallery">Memories</a></li>
+                <li><a href="#guestbook">Wishes</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Happy Birthday to My <span>Amazing Mentor</span>!</h1>
+            <h1>AbdulAzeez <span
+            style="border-bottom: 3.5px solid lightblue;display: inline; border-radius:5px;"
+            >Ridwanullah</span></h1>
+            <p>Today we celebrate the incredible person who has guided, inspired, and supported me throughout my journey. Your wisdom and kindness have made all the difference.🫡</p>
+            
+            <div class="countdown">
+                <div class="countdown-box">
+                    <div class="number" id="days">00</div>
+                    <div class="label">Days</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="number" id="hours">00</div>
+                    <div class="label">Hours</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="number" id="minutes">00</div>
+                    <div class="label">Minutes</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="number" id="seconds">00</div>
+                    <div class="label">Seconds</div>
+                </div>
+            </div>
+            
+            <a href="#guestbook" class="btn">Send Your Wishes</a>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <div class="section-title">
+            <h2>Journey Together</h2>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>First Meeting</h3>
+                    <p>2021</p>
+                    <p>Our journey began when we first met. Little did we know this would be the start of an incredible mentorship relationship.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>First Project</h3>
+                    <p>2023</p>
+                    <p>You guided me through my first project, teaching me not just about the technical aspects, but <span></span>also about consistency and perseverance.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Guidance</h3>
+                    <p>2024</p>
+                    <p>During a challenging time, your advice helped me navigate my decisions that shaped my live.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Leadership</h3>
+                    <p>2024</p>
+                    <p>You taught me the true meaning of leadership - not just managing people, but inspiring and empowering them.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Mentorship Milestone</h3>
+                    <p>2025</p>
+                    <p>Celebrating four years of your invaluable guidance and the countless lives you've impacted.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="section-title">
+            <h2>Cherished Memories</h2>
+        </div>
+        
+        <div class="gallery-section">
+                <div class="slideshow-container">
+                    <div class="slide-container">
+                        <div class="slide active" style="background-image: url('https://i.postimg.cc/yNPKjm6C/IMG-20250528-WA0051.jpg');"></div>
+                        <div class="slide" style="background-image: url('https://i.postimg.cc/k4stbFxC/IMG-20250528-WA0046-2.jpg');"></div>
+                        <div class="slide" style="background-image: url('https://i.postimg.cc/7hCyqj3q/IMG-20250528-WA0050-2.jpg');"></div>
+                        <div class="slide" style="background-image: url('https://i.postimg.cc/yNvqc7nV/IMG-20250528-WA0043.jpg');"></div>
+                        
+         <div class="slide" style="background-image: url('https://i.postimg.cc/pT6gckg4/IMG-20250528-WA0044.jpg');"></div>               
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button class="btn prev-btn">Previous</button>
+                    <button class="btn next-btn">Next</button>
+                </div>
+                
+                <div class="thumbnails">
+                    <div class="thumbnail active" data-index="0">
+                        <img src="https://i.postimg.cc/W3T1Xf5x/IMG-20250528-WA0051.jpg" alt="Thumbnail 1">
+                    </div>
+                    <div class="thumbnail" data-index="1">
+                        <img src="https://i.postimg.cc/k4stbFxC/IMG-20250528-WA0046-2.jpg" alt="Thumbnail 2">
+                    </div>
+                    <div class="thumbnail" data-index="2">
+                        <img src="https://i.postimg.cc/7hCyqj3q/IMG-20250528-WA0050-2.jpg" alt="Thumbnail 3">
+                    </div>
+                    <div class="thumbnail" data-index="3">
+                        <img src="https://i.postimg.cc/yNvqc7nV/IMG-20250528-WA0043.jpg" alt="Thumbnail 4">
+                    </div>
+                    
+                    <div class="thumbnail" data-index="4">
+                        <img src="https://i.postimg.cc/pT6gckg4/IMG-20250528-WA0044.jpg" alt="Thumbnail 4">
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    
+    <!-- Guestbook Section -->
+    <section id="guestbook">
+        <div class="section-title">
+            <h2>Send Your Wishes</h2>
+        </div>
+        
+        <div class="guestbook">
+            <div class="guestbook-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Birthday Message</label>
+                    <textarea id="message" class="form-control" placeholder="Write your heartfelt message here..."></textarea>
+                </div>
+                <button id="submit-btn" class="btn btn-block">Post Your Message</button>
+            </div>
+            
+            <div class="messages" id="messages-container">
+                <!-- Messages will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="#" class="social-icon twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <p>Created with love by your mentee to celebrate your special day</p>
+        <p class="copyright">© 2025 My Mentor's Birthday Celebration. All rights reserved.</p>
+    </footer>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Alert Modal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+       
+        
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transform: translateY(50px);
+            transition: transform 0.5s ease;
+            overflow: hidden;
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            background: linear-gradient(90deg, #8e44ad, #3498db);
+            padding: 30px 30px 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-icon i {
+            font-size: 40px;
+            color: #3498db;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .close-modal i {
+            font-size: 20px;
+            color: white;
+        }
+        
+        .modal-body {
+            padding: 30px;
+            text-align: center;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .modal-body p {
+            margin-bottom: 20px;
+        }
+        
+        .modal-footer {
+            padding: 0 30px 30px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .modal-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(90deg, #3498db, #8e44ad);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+        
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-btn:active {
+            transform: translateY(1px);
+        }
+        
+        /* Animation for the modal content */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .modal-header {
+                padding: 25px 20px 15px;
+            }
+            
+            .modal-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .modal-icon i {
+                font-size: 32px;
+            }
+            
+            .modal-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            .modal-body {
+                padding: 20px;
+                font-size: 1rem;
+            }
+            
+            .modal-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <!-- Custom Modal -->
+    <div class="modal active" id="messageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <h3>Important Notice</h3>
+                <div class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <p><b>Messages sent will be only visible to you.</b> Wait for future update to be able to send message to the owner through here.</p>
+                <p>We're working hard to implement this feature and will notify you as soon as it's available.</p>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="modal-btn" id="understandBtn">I Understand</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('messageModal');
+            const showBtn = document.getElementById('showModalBtn');
+            const closeBtn = document.getElementById('closeModal');
+            const understandBtn = document.getElementById('understandBtn');
+            
+           
+            // Close modal when close button is clicked
+            closeBtn.addEventListener('click', function() {
+                modal.classList.remove('active');
+            });
+            
+            // Close modal when understand button is clicked
+            understandBtn.addEventListener('click', function() {
+                modal.classList.remove('active');
+            });
+            
+            // Close modal when clicking outside the modal content
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+    
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }, 2000);
+        });
+              
+        // Countdown Timer
+        function updateCountdown() {
+            // Set birthday date (June 6)
+            const birthday = new Date(new Date().getFullYear(), 5, 6); // Months are 0-indexed
+            
+            // If birthday has passed this year, set for next year
+            if (new Date() > birthday) {
+                birthday.setFullYear(birthday.getFullYear() + 1);
+            }
+            
+            const now = new Date();
+            const diff = birthday - now;
+            
+            // Calculate time units
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // Update DOM
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            
+            if (daysEl.textContent !== days.toString().padStart(2, '0')) {
+                daysEl.textContent = days.toString().padStart(2, '0');
+                daysEl.parentElement.classList.add('pop');
+                setTimeout(() => daysEl.parentElement.classList.remove('pop'), 500);
+            }
+            
+            if (hoursEl.textContent !== hours.toString().padStart(2, '0')) {
+                hoursEl.textContent = hours.toString().padStart(2, '0');
+                hoursEl.parentElement.classList.add('pop');
+                setTimeout(() => hoursEl.parentElement.classList.remove('pop'), 500);
+            }
+            
+            if (minutesEl.textContent !== minutes.toString().padStart(2, '0')) {
+                minutesEl.textContent = minutes.toString().padStart(2, '0');
+                minutesEl.parentElement.classList.add('pop');
+                setTimeout(() => minutesEl.parentElement.classList.remove('pop'), 500);
+            }
+            
+            secondsEl.textContent = seconds.toString().padStart(2, '0');
+            
+            // Trigger confetti when countdown reaches zero
+            if (diff < 1000) {
+                triggerConfetti();
+            }
+        }
+        
+        // Initialize countdown and update every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // Confetti Effect
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            // Confetti particles
+            const confetti = [];
+            const confettiCount = 300;
+            const gravity = 0.5;
+            const colors = ['#ff4d94', '#00e5ff', '#9c27b0', '#ffeb3b', '#4caf50'];
+            
+            // Create confetti particles
+            for (let i = 0; i < confettiCount; i++) {
+                confetti.push({
+                    x: Math.random() * canvas.width,
+                    y: -20,
+                    radius: Math.random() * 10 + 5,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    rotation: Math.random() * 360,
+                    speed: Math.random() * 3 + 2,
+                    rotationSpeed: Math.random() * 5 + 2,
+                    sway: Math.random() - 0.5
+                });
+            }
+            
+            // Animation function
+            function animateConfetti() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                confetti.forEach((c, index) => {
+                    ctx.save();
+                    ctx.translate(c.x, c.y);
+                    ctx.rotate(c.rotation * Math.PI / 180);
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(-c.radius, 0);
+                    ctx.lineTo(c.radius, 0);
+                    ctx.strokeStyle = c.color;
+                    ctx.lineWidth = 5;
+                    ctx.stroke();
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(0, -c.radius);
+                    ctx.lineTo(0, c.radius);
+                    ctx.stroke();
+                    
+                    ctx.restore();
+                    
+                    // Update position
+                    c.y += c.speed;
+                    c.x += c.sway;
+                    c.rotation += c.rotationSpeed;
+                    
+                    // Remove confetti that fall off screen
+                    if (c.y > canvas.height) {
+                        confetti.splice(index, 1);
+                    }
+                });
+                
+                if (confetti.length > 0) {
+                    requestAnimationFrame(animateConfetti);
+                }
+            }
+            
+            animateConfetti();
+        }
+        
+        // Particle Background
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.1, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.05,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    repulse: { distance: 100, duration: 0.4 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+        
+        
+        
+        
+        
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => slide.classList.remove('active'));
+                thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                
+                // Show selected slide
+                slides[index].classList.add('active');
+                thumbnails[index].classList.add('active');
+                currentSlide = index;
+            }
+            
+            // Navigation functions
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Thumbnail click events
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    showSlide(index);
+                });
+            });
+            
+            // Auto-advance slides (optional)
+            setInterval(nextSlide, 4000);
+        });
+     
+        
+        // Guestbook functionality
+        const guestbookMessages = JSON.parse(localStorage.getItem('guestbookMessages')) || [];
+        
+        function renderMessages() {
+            const container = document.getElementById('messages-container');
+            container.innerHTML = '';
+            
+            guestbookMessages.forEach(message => {
+                const messageCard = document.createElement('div');
+                messageCard.className = 'message-card';
+                
+                messageCard.innerHTML = `
+                    <div class="message-header">
+                        <div class="message-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="message-name">${message.name}</div>
+                            <div class="message-date">${message.date}</div>
+                        </div>
+                    </div>
+                    <div class="message-content">
+                        ${message.message}
+                    </div>
+                `;
+                
+                container.appendChild(messageCard);
+            });
+        }
+        
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            const nameInput = document.getElementById('name');
+            const messageInput = document.getElementById('message');
+            
+            if (nameInput.value.trim() === '' || messageInput.value.trim() === '') {
+                alert('Please fill in both fields');
+                return;
+            }
+            
+            const now = new Date();
+            const dateString = now.toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            });
+            
+            const message = {
+                name: nameInput.value,
+                message: messageInput.value,
+                date: dateString
+            };
+            
+            guestbookMessages.push(message);
+            localStorage.setItem('guestbookMessages', JSON.stringify(guestbookMessages));
+            
+            // Clear inputs
+            nameInput.value = '';
+            messageInput.value = '';
+            
+            // Render messages
+            renderMessages();
+            
+            // Show success message
+            alert('Thank you for your message!');
+        });
+        
+        // Render existing messages on load
+        renderMessages();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active class
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
